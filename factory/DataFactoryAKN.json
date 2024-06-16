@@ -1,0 +1,9 @@
+{
+	"name": "DataFactoryAKN",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c3d0eeb3-9d75-41bc-81fc-034d4910a437",
+		"tenantId": "b1d84cff-88d9-47e4-a77c-4623ae1435ad"
+	}
+}
