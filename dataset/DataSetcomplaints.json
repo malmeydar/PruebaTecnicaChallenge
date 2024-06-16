@@ -1,0 +1,79 @@
+{
+	"name": "DataSetcomplaints",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LknStorageAccount",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "kaggle"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "r report that you don't recognize",
+				"type": "String"
+			},
+			{
+				"name": "Prop_1",
+				"type": "String"
+			},
+			{
+				"name": "Company has responded to the consumer and the CFPB and chooses not to provide a public response",
+				"type": "String"
+			},
+			{
+				"name": "TRANSUNION INTERMEDIATE HOLDINGS, INC.",
+				"type": "String"
+			},
+			{
+				"name": "TX",
+				"type": "String"
+			},
+			{
+				"name": "75149",
+				"type": "String"
+			},
+			{
+				"name": "Older American",
+				"type": "String"
+			},
+			{
+				"name": "Consent not provided",
+				"type": "String"
+			},
+			{
+				"name": "Web",
+				"type": "String"
+			},
+			{
+				"name": "2023-11-11",
+				"type": "String"
+			},
+			{
+				"name": "Closed with non-monetary relief",
+				"type": "String"
+			},
+			{
+				"name": "Yes",
+				"type": "String"
+			},
+			{
+				"name": "N/A",
+				"type": "String"
+			},
+			{
+				"name": "7834343",
+				"type": "String"
+			}
+		]
+	}
+}
