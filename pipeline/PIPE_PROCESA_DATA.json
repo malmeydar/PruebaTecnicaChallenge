@@ -24,7 +24,6 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
-						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -81,14 +80,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DataSetcomplaints",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@activity('GetMetadataFilecomplaints').output.childItems[0].name\n",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "SourceComplaint",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
