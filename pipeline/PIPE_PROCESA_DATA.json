@@ -32,8 +32,8 @@
 				}
 			},
 			{
-				"name": "Copy ADLS_to_SQLServer",
-				"type": "Copy",
+				"name": "Azure Function1",
+				"type": "AzureFunctionActivity",
 				"dependsOn": [
 					{
 						"activity": "GetMetadataFilecomplaints",
@@ -49,56 +49,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "SqlServerSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate"
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "SourceComplaint",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@activity('GetMetadataFilecomplaints').output.childItems[0].name",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DSComplaint",
-						"type": "DatasetReference",
-						"parameters": {
-							"TableNanme": "tblComplaints"
-						}
-					}
-				]
+				"userProperties": []
 			}
 		],
 		"annotations": []
