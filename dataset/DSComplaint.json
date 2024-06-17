@@ -5,6 +5,11 @@
 			"referenceName": "LknConnBD",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"TableNanme": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
