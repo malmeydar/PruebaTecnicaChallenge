@@ -1,0 +1,12 @@
+{
+	"name": "DSComplaint",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LknConnBD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}

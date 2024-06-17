@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get MetadataFilecomplaints",
+				"name": "GetMetadataFilecomplaints",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -36,7 +37,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Get MetadataFilecomplaints",
+						"activity": "GetMetadataFilecomplaints",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -51,8 +52,51 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DataSetcomplaints",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@activity('GetMetadataFilecomplaints').output.childItems[0].name\n",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DSComplaint",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
